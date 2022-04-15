@@ -12,8 +12,13 @@ class MainActivityViewModel: ViewModel() {
     val segmentStateLiveData: LiveData<Int> = _segmentStateLiveData
 
     fun onButtonClicked() {
-        val curentColor = _segmentStateLiveData
-        _segmentStateLiveData.postValue(info)
-        //_segmentStateLiveData.value = randomText
+        val currentColor = _segmentStateLiveData.value
+        val newColor = if (currentColor == R.color.unselected) {
+            R.color.selected
+        } else {
+            R.color.unselected
+        }
+
+        _segmentStateLiveData.postValue(newColor)
     }
 }
