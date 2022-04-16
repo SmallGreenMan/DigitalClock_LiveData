@@ -6,21 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <include layout="@layout/layout_segment"
-        android:id="@+id/segment"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_marginTop="60dp"
+    <include
+        android:id="@+id/layoutSecondLeft"
+        layout="@layout/layout_digit_display"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/layoutSecondRight"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="CLICK ME"
+    <include
+        android:id="@+id/layoutSecondRight"
+        layout="@layout/layout_digit_display"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/segment" />
+        app:layout_constraintStart_toEndOf="@id/layoutSecondLeft"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
