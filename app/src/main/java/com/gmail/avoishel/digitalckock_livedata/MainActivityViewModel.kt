@@ -11,6 +11,9 @@ import java.util.*
 
 class MainActivityViewModel: ViewModel() {
 
+    val hourRightDisplayManager = DigitsDisplayManager()
+    val hourLeftDisplayManager = DigitsDisplayManager()
+
     val secondRightDisplayManager = DigitsDisplayManager()
     val secondLeftDisplayManager = DigitsDisplayManager()
 
@@ -18,8 +21,14 @@ class MainActivityViewModel: ViewModel() {
         viewModelScope.launch {
             var index = 0
             while (true) {
-                secondRightDisplayManager.onNewDigit(index % 10)
-                secondLeftDisplayManager.onNewDigit((index / 10) % 10)
+                val hours = index / 60
+                val seconds = index % 60
+
+                hourRightDisplayManager.onNewDigit(hours % 10)
+                hourLeftDisplayManager.onNewDigit((hours / 10) % 10)
+
+                secondRightDisplayManager.onNewDigit(seconds % 10)
+                secondLeftDisplayManager.onNewDigit((seconds / 10) % 10)
                 index++
                 delay(1_00)
             }

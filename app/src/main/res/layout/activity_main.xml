@@ -7,14 +7,34 @@
     tools:context=".MainActivity">
 
     <include
+        android:id="@+id/layoutHourLeft"
+        layout="@layout/layout_digit_display"
+        android:layout_width="150dp"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toStartOf="@id/layoutSecondRight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/layoutSecondLeft"
+        />
+
+    <include
+        android:id="@+id/layoutHourRight"
+        layout="@layout/layout_digit_display"
+        android:layout_width="150dp"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/layoutHourLeft"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/layoutSecondLeft" />
+
+    <include
         android:id="@+id/layoutSecondLeft"
         layout="@layout/layout_digit_display"
         android:layout_width="100dp"
         android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/layoutSecondRight"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintEnd_toEndOf="@id/layoutHourLeft"
+        app:layout_constraintTop_toBottomOf="@id/layoutHourRight" />
 
     <include
         android:id="@+id/layoutSecondRight"
@@ -22,8 +42,7 @@
         android:layout_width="100dp"
         android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/layoutSecondLeft"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toStartOf="@id/layoutHourRight"
+        app:layout_constraintTop_toBottomOf="@id/layoutHourRight" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

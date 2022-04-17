@@ -24,6 +24,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        viewModel.hourLeftDisplayManager.digitDisplayLiveData.observe(this){ map ->
+            setuplayoutWithNewDigit(binding.layoutHourLeft, map)
+        }
+        viewModel.hourRightDisplayManager.digitDisplayLiveData.observe(this){ map ->
+            setuplayoutWithNewDigit(binding.layoutHourRight, map)
+        }
+
         viewModel.secondLeftDisplayManager.digitDisplayLiveData.observe(this){ map ->
             setuplayoutWithNewDigit(binding.layoutSecondLeft, map)
         }
